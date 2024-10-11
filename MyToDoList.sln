@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyToDoList", "MyToDoList.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyToDolIst.Api", "..\MyToDolIst.Api\MyToDolIst.Api.csproj", "{81909AB1-AFD6-4000-BEC4-E9F2A16EA19F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meteri", "Meteri", "{F4A73B7D-1F22-4BFD-867F-29187CAE603E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

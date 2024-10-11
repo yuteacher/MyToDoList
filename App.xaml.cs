@@ -1,7 +1,6 @@
-﻿using System.Configuration;
-using System.Data;
+﻿using MyToDoList.ViewModels;
+using MyToDoList.Views;
 using System.Windows;
-using Prism.Ioc;
 
 namespace MyToDoList
 {
@@ -12,10 +11,18 @@ namespace MyToDoList
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<MainWindow>();
+            return Container.Resolve<MainView>();
         }
-        protected override void RegisterTypes( IContainerRegistry registry)
+        protected override void RegisterTypes(IContainerRegistry registry)
         {
+            registry.RegisterForNavigation<SystemSettingView>();
+            registry.RegisterForNavigation<AboutMoreView>();
+            registry.RegisterForNavigation<IndividuationView, IndividuationViewModel>();
+            registry.RegisterForNavigation<IndexView, IndexViewModel>();
+            registry.RegisterForNavigation<ToDoView, ToDoViewModel>();
+            registry.RegisterForNavigation<MemoView, MemoViewModel>();
+            registry.RegisterForNavigation<SettingsView, SettingsViewModel>();
+
         }
     }
 
