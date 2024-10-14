@@ -11,16 +11,16 @@ namespace MyToDoList.ViewModels
 
             CreateSettingsBars();
             this.regionManager = regionManager;
-            DelegateCommand=new DelegateCommand<SettingsBar>(
+            DelegateCommand=new DelegateCommand<MenuBar>(
                 (parameter) =>
                 {
                     this.regionManager.RequestNavigate(PrismManager.SettingsViewRegionName, parameter.NameSpace);
                 });
 
         }
-        public DelegateCommand<SettingsBar> DelegateCommand { get; private set; }
-        private ObservableCollection<SettingsBar> settingsBars;
-        public ObservableCollection<SettingsBar> SettingsBars
+        public DelegateCommand<MenuBar> DelegateCommand { get; private set; }
+        private ObservableCollection<MenuBar> settingsBars;
+        public ObservableCollection<MenuBar> SettingsBars
         {
             get { return settingsBars; }
             set
@@ -31,10 +31,10 @@ namespace MyToDoList.ViewModels
         private readonly IRegionManager regionManager;
         void CreateSettingsBars()
         {
-            settingsBars = new ObservableCollection<SettingsBar>();
-            settingsBars.Add(new SettingsBar() { Title = "个性化", Icon = "Palette",NameSpace="IndividuationView" });
-            settingsBars.Add(new SettingsBar() { Title = "系统设置", Icon = "Cog", NameSpace = "SystemSettingView" });
-            settingsBars.Add(new SettingsBar() { Title = "关于更多", Icon = "Information", NameSpace = "AboutMoreView" });
+            settingsBars = new ObservableCollection<MenuBar>();
+            settingsBars.Add(new MenuBar() { Title = "个性化", Icon = "Palette",NameSpace="IndividuationView" });
+            settingsBars.Add(new MenuBar() { Title = "系统设置", Icon = "Cog", NameSpace = "SystemSettingView" });
+            settingsBars.Add(new MenuBar() { Title = "关于更多", Icon = "Information", NameSpace = "AboutMoreView" });
         }
 
     }

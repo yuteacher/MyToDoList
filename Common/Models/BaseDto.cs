@@ -10,9 +10,9 @@ namespace MyToDoList.Common.Models
     {
 
 
-        private int id;
-        private DateTime createDate;
-        private DateTime updateDate;
+        public int Id;
+        public DateTime createDate;
+        public DateTime updateDate;
 
         public DateTime CreateDate
         {

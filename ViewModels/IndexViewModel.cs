@@ -1,4 +1,5 @@
-﻿using MyToDoList.Common.Models;
+﻿using MyToDo.Shared.Dtos;
+using MyToDoList.Common.Models;
 using System.Collections.ObjectModel;
 
 namespace MyToDoList.ViewModels
@@ -55,8 +56,8 @@ namespace MyToDoList.ViewModels
             MemoDtos = new ObservableCollection<MemoDto>();
             for (int i = 0; i < 10; i++)
             {
-                ToDoDtos.Add(new ToDoDto { Title = "测试待办" + i, Content = "测试" + i, CreateDate = DateTime.Now.AddDays(i) });
-                memoDtos.Add(new MemoDto { Title = "测试备忘" + i, Content = "测试" + i, CreateDate = DateTime.Now.AddDays(i) });
+                ToDoDtos.Add(new ToDoDto { Title = "测试待办" + i, Content = "测试" + i });
+                memoDtos.Add(new MemoDto { Title = "测试备忘" + i, Content = "测试" + i });
             }
         }
     }

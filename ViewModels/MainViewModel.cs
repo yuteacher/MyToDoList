@@ -1,10 +1,11 @@
-﻿using MyToDoList.Common.Models;
+﻿using MyToDoList.Common;
+using MyToDoList.Common.Models;
 using MyToDoList.Extensions;
 using System.Collections.ObjectModel;
 
 namespace MyToDoList.ViewModels
 {
-    public class MainViewModel : BindableBase
+    public class MainViewModel : BindableBase ,IConfigureService
     {
         public MainViewModel(IRegionManager regionManager)
         {
@@ -56,6 +57,12 @@ namespace MyToDoList.ViewModels
             menuBars.Add(new MenuBar() { Icon = "NotebookOutline", Title = "待办事项", NameSpace = "ToDoView" });
             menuBars.Add(new MenuBar() { Icon = "NotebookPlus", Title = "备忘录", NameSpace = "MemoView" });
             menuBars.Add(new MenuBar() { Icon = "Cog", Title = "设置", NameSpace = "SettingsView" });
+        }
+
+        public void Configure()
+        {
+            CreateMenuBars();
+            regionManager.RegisterViewWithRegion(PrismManager.MainViewRegionName, "IndexView");
         }
     }
 }

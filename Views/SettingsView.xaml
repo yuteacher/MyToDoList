@@ -47,7 +47,10 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <ContentControl Grid.Row="1" Margin="10" prism:RegionManager.RegionName="{x:Static ext:PrismManager.SettingsViewRegionName}" />
+                <ContentControl
+                    Grid.Row="1"
+                    Margin="10"
+                    prism:RegionManager.RegionName="{x:Static ext:PrismManager.SettingsViewRegionName}" />
             </DockPanel>
         </Grid>
     </Grid>

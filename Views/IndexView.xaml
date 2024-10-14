@@ -16,8 +16,8 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock
-            Margin="20"
             Grid.Row="0"
+            Margin="20"
             FontSize="24"
             FontWeight="Bold"
             Text="My To Do List" />

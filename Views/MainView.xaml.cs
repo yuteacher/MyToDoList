@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using MaterialDesignThemes.Wpf;
+using MyToDoList.Extensions;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MyToDoList.Views
@@ -8,9 +10,16 @@ namespace MyToDoList.Views
     /// </summary>
     public partial class MainView : Window
     {
-        public MainView()
+        public MainView( IEventAggregator aggregator)
         {
             InitializeComponent();
+            //注册等待消息窗口
+            aggregator.Resgiter(arg =>
+            {
+                DiologHost.IsOpen = arg.IsOpen;
+
+                if(DiologHost.IsOpen) DiologHost.DialogContent = new ProgressView();
+            });
             BtnMin.Click += (s, e) => { this.WindowState = WindowState.Minimized; };
             BtnClose.Click += (s, e) => { this.Close(); };
             BtnMax.Click += (s, e) =>
