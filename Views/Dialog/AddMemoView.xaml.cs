@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyToDoList.ViewModels
+namespace MyToDoList.Views.Dialog
 {
     /// <summary>
-    /// AboutMoreView.xaml 的交互逻辑
+    /// AddMemoView.xaml 的交互逻辑
     /// </summary>
-    public partial class AboutMoreView : UserControl
+    public partial class AddMemoView : UserControl
     {
-        public AboutMoreView()
+        public AddMemoView()
         {
             InitializeComponent();
         }

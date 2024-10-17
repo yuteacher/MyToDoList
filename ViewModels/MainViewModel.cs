@@ -9,8 +9,7 @@ namespace MyToDoList.ViewModels
     {
         public MainViewModel(IRegionManager regionManager)
         {
-            MenuBars = new ObservableCollection<MenuBar>();
-            CreateMenuBars();
+            
             this.MenuBarSelectedCommand = new DelegateCommand<MenuBar>(MenuBarSelected);
             this.regionManager = regionManager;
             ForwardCommand = new DelegateCommand(() =>
@@ -53,6 +52,7 @@ namespace MyToDoList.ViewModels
         }
         void CreateMenuBars()
         {
+            MenuBars = new ObservableCollection<MenuBar>();
             menuBars.Add(new MenuBar() { Icon = "Home", Title = "首页", NameSpace = "IndexView" });
             menuBars.Add(new MenuBar() { Icon = "NotebookOutline", Title = "待办事项", NameSpace = "ToDoView" });
             menuBars.Add(new MenuBar() { Icon = "NotebookPlus", Title = "备忘录", NameSpace = "MemoView" });

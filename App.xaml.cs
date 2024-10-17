@@ -1,7 +1,11 @@
-﻿using MyToDoList.Common;
+﻿using MyToDolist.Common;
+using MyToDoList.ViewModels;
+using MyToDoList.Common;
 using MyToDoList.Service;
 using MyToDoList.ViewModels;
+using MyToDoList.ViewModels.Dialogs;
 using MyToDoList.Views;
+using MyToDoList.Views.Dialog;
 using Prism.Ioc;
 using System.Windows;
 
@@ -18,10 +22,21 @@ namespace MyToDoList
         }
         protected override void OnInitialized()
         {
-            var service = App.Current.MainWindow.DataContext as IConfigureService;
-            if(service != null)
-                service.Configure();
-            base.OnInitialized();
+            var dialog = Container.Resolve<IDialogService>();
+
+            dialog.ShowDialog("LoginView", callback =>
+            {
+                if (callback.Result != ButtonResult.OK)
+                {
+                    Environment.Exit(0);
+                    return;
+                }
+
+                var service = App.Current.MainWindow.DataContext as IConfigureService;
+                if (service != null)
+                    service.Configure();
+                base.OnInitialized();
+            });
         }
         protected override void RegisterTypes(IContainerRegistry registry)
         {
@@ -32,8 +47,12 @@ namespace MyToDoList
             registry.Register<ILoginService, LoginService>();
             registry.Register<IToDoService, ToDoService>();
             registry.Register<IMemoService, MemoService>();
-           // registry.Register<IDialogHostService, DialogHostService>();
+            registry.Register<IDialogHostService, DialogHostService>();
 
+
+            registry.RegisterForNavigation<AddToDoView, AddToDoViewModel>();
+            registry.RegisterForNavigation<AddMemoView, AdddMemoViewModel>();
+            registry.RegisterForNavigation<MsgView, MsgViewModel>();
             registry.RegisterForNavigation<SystemSettingView>();
             registry.RegisterForNavigation<AboutMoreView>();
             registry.RegisterForNavigation<IndividuationView, IndividuationViewModel>();

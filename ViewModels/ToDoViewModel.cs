@@ -20,7 +20,7 @@ namespace MyToDoList.ViewModels
             ExecuteCommand = new DelegateCommand<string>(Execute);
             SelectedCommand = new DelegateCommand<ToDoDto>(Selected);
             DeleteCommand = new DelegateCommand<ToDoDto>(Delete);
-            //dialogHost = provider.Resolve<IDialogHostService>();
+            dialogHost = provider.Resolve<IDialogHostService>();
             this.service = service;
         }
 
